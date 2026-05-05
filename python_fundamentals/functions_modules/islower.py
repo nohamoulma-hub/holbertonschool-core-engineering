@@ -4,3 +4,5 @@ def islower(c):
         return True
     else:
         return False
+#  pour faire plus simple on peut faire
+#  return ord(c) >= 97 and ord(c) <= 122

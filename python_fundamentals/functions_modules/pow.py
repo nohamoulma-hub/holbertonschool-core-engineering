@@ -14,6 +14,6 @@ def pow(a, b):
         result = result * a
 
     if b < 0:
-            return 1 / result
+        return 1 / result
 
     return result

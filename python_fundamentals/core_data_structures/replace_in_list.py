@@ -4,5 +4,5 @@ def replace_in_list(my_list, idx, element):
     if idx < 0 or idx >= taille:
         return my_list[idx]
     else:
-        idx = element
+        my_list.replace(idx, element)
         return my_list[element]

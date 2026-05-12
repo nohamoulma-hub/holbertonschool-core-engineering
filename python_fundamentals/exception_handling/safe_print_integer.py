@@ -6,8 +6,6 @@ def safe_print_integer(value):
     """ Print value if is an integer """
     try:
         print("{:d}".format(value))
-        if value == int:
-            print("True")
-            return True
+        return True
     except TypeError:
         return False

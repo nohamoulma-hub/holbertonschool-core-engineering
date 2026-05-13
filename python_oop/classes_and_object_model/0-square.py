@@ -2,5 +2,6 @@
 """ Define a new class Square """
 
 
-class Square
-""" empty class """
+class Square:
+    """ empty class """
+    pass

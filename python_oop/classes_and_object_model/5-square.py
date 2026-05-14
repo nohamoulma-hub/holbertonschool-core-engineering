@@ -23,11 +23,10 @@ class Square():
         self.__size = value
 
     def my_print(self):
-        for i in range(self.__size,):
+        for i in range(self.__size):
             if self.__size == 0:
                 print()
-            else:
-                print("#" * self.__size)
+            print("#" * self.__size)
 
     def area(self):
         return self.__size ** 2  # ** veut dire puissance

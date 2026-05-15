@@ -5,7 +5,7 @@
 class Square():
     """ Condition declaration for size"""
 
-    def __init__(self, size=0, positon=(0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         self.size = size
         self.position = position
 
@@ -25,7 +25,7 @@ class Square():
 
     @property
     def position(self):
-        return self.position
+        return self.__position
 
     @position.setter
     def position(self, value):
@@ -52,10 +52,10 @@ class Square():
         return "\n".join(result)
 
     def my_print(self):
-        print(self.__build_string)
+        print(self.__build_string())
 
     def __str__(self):
-        print(self.__build_string)
+        print(self.__build_string())
 
     def area(self):
         return self.__size ** 2  # ** veut dire puissance

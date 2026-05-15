@@ -41,7 +41,7 @@ class Square():
     def __build_string(self):
         result = []  # on crée une liste vide qui va stocker chaque ligne
         if self.__size == 0:
-            return "\n"  # si size = 0, on retourne juste une ligne vide
+            return ""  # si size = 0, on retourne juste une ligne vide
 
         for _ in range(self.__position[1]):
             result.append("")

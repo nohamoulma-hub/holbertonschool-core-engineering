@@ -12,7 +12,7 @@ async def connection_handler(websocket):
             # strip retire les espaces au début et à la fin
             not_empty_message = message.strip()
             if not_empty_message == "":
-                await websocket.send("ERR:EMPTY\n")
+                await websocket.send("ERR:EMPTY")
             else:
                 await websocket.send(f"OK:{message}")
         except ConnectionClosed:
@@ -24,4 +24,8 @@ async def main():
         await asyncio.Future()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        pass
+

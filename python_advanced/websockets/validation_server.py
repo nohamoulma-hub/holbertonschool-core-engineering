@@ -3,16 +3,20 @@
 
 import asyncio
 import websockets
+from websockets.exceptions import ConnectionClosed
 
 
 async def connection_handler(websocket):
     async for message in websocket:
-        # strip retire les espaces au début et à la fin
-        trimmed = message.strip()
-        if trimmed == "":
-            await websocket.send("ERR:EMPTY\n")
-        else:
-            await websocket.send(f"OK:{trimmed}\n")
+        try:
+            # strip retire les espaces au début et à la fin
+            not_empty_message = message.strip()
+            if not_empty_message == "":
+                await websocket.send("ERR:EMPTY\n")
+            else:
+                await websocket.send(f"OK:{message}\n")
+        except ConnectionClosed:
+            pass
 
 
 async def main():

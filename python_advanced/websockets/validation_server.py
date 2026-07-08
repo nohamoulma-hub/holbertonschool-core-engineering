@@ -3,7 +3,7 @@
 
 import asyncio
 import websockets
-from websockets.exceptions import ConnectionClosed
+from websockets.exceptions import ConnectionClosed # type: ignore
 
 
 async def connection_handler(websocket):

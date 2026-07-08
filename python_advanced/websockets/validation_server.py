@@ -14,7 +14,7 @@ async def connection_handler(websocket):
             if not_empty_message == "":
                 await websocket.send("ERR:EMPTY\n")
             else:
-                await websocket.send(f"OK:{message}\n")
+                await websocket.send(f"OK:{message}")
         except ConnectionClosed:
             pass
 

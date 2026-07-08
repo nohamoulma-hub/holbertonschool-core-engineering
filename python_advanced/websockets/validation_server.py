@@ -7,6 +7,7 @@ import websockets
 
 async def connection_handler(websocket):
     async for message in websocket:
+        # strip retire les espaces au début et à la fin
         trimmed = message.strip()
         if trimmed == "":
             await websocket.send("ERR:EMPTY\n")

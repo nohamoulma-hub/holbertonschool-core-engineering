@@ -5,7 +5,7 @@ import asyncio
 import websockets
 
 
-async def handler(websocket):
+async def connection_handler(websocket):
     async for message in websocket:
         trimmed = message.strip()
         if trimmed == "":
@@ -15,7 +15,7 @@ async def handler(websocket):
 
 
 async def main():
-    async with websockets.serve(handler, "localhost", 8765):
+    async with websockets.serve(connection_handler, "localhost", 8765):
         await asyncio.Future()
 
 if __name__ == "__main__":

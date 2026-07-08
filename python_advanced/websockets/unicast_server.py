@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-""" 
+"""
 Module manage multiple connected clients and
-control how messages are delivered 
+control how messages are delivered
 """
 
 import asyncio
@@ -9,6 +9,7 @@ import websockets
 
 # Ensemble des clients actuellement connectés
 connected_clients = set()
+
 
 async def connection_handler(websocket):
     # Ajout du client qui se connecte
@@ -22,7 +23,7 @@ async def connection_handler(websocket):
                 await websocket.send(f"U:{message}")
     finally:
         # Si le client se déco ou à cause d'une erreur
-        # on le retire 
+        # on le retire
         connected_clients.remove(websocket)
 
 

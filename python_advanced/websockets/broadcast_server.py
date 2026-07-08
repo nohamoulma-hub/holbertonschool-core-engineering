@@ -8,14 +8,14 @@ import websockets
 connected_clients = set()
 
 
-async def broacast(message):
+async def broadcast(message):
     """ send a message for all client """
     if connected_clients:
         # asyncio.gather permet d'envoyer à tout le monde
         # en parrallèle
         await asyncio.gather(
             *(client.send(message) for client in connected_clients),
-            return_exception=True
+            return_exceptions=True
         )
 
 
@@ -28,7 +28,7 @@ async def connection_handler(websocket):
             if not_empty_message == "":
                 await websocket.send("ERR:EMPTY")
             else:
-                await websocket.send(f"B:{message}")
+                await broadcast(f"B:{not_empty_message}")
     finally:
         # Si le client se déco ou à cause d'une erreur
         # on le retire
